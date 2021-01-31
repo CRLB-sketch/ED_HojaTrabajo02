@@ -14,8 +14,6 @@
  * @since 2021-Enero-30
  **/    
 
-package src;
-
 interface IPila{
     public int push(int result);
     public int pop();

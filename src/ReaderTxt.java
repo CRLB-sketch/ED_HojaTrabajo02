@@ -14,13 +14,11 @@
  * @since 2021-Enero-30
  **/    
 
-package src;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class ReaderTxt {
-    
+
     // --> Atributos
     private BufferedReader bf;
     private String text;
@@ -49,4 +47,5 @@ public class ReaderTxt {
 
         return text;
     }
+
 }
