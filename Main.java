@@ -16,6 +16,7 @@
 
  class Main{
      public static void main(String[] args) {
-         // Más pruebas para ver el comportamiento del GIT
+         Controller ctrl = new Controller();
+         ctrl.main_menu();
      }
  }

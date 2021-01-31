@@ -15,5 +15,9 @@
  **/    
 
 interface IPila{
-
+    public int push(int result);
+    public int pop();
+    public void add();
+    public void clean();
+    public String toString();
 }

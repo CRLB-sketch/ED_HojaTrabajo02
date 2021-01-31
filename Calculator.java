@@ -15,6 +15,57 @@
  * @since 2021-Enero-30
  **/    
 
-public class Calculator implements IPila {
+import java.util.LinkedList;
+ 
+public class Calculator <T> implements IPila {
     
+    // --> Atributos
+    private LinkedList<T> numeros;
+
+    // --> Contructor
+    public Calculator(){
+        numeros = new LinkedList<T>();
+    }
+
+    // --> Métodos        
+    @Override
+    public int push(int result){
+        return 0;
+    }
+
+    @Override
+    public int pop(){
+        return 0;
+    }
+
+    @Override
+    public void add(){
+
+    }
+
+    @Override
+    public void clean(){
+
+    }
+
+    public int sum(){
+        return 0;
+    }
+    
+    public int substract(){
+        return 0;
+    }
+
+    public int multiply(){
+        return 0;
+    }
+
+    public int divition(){
+        return 0;
+    }
+
+    @Override
+    public String toString(){
+        return "ADT Calculator ;)";
+    }
 }
