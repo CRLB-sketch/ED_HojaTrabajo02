@@ -14,6 +14,8 @@
  * @since 2021-Enero-30
  **/    
 
+package src;
+
 public class Controller {
     
     // --> Atributos
@@ -34,13 +36,14 @@ public class Controller {
     public void main_menu(){
 
         do {
+            
             String option = view.menu();
 
             switch (option) {
 
                 // Leer archivo predeterminado
                 case "1":
-                    String file1 = rTxt.readFile("defaultTxt.txt");
+                    String file1 = rTxt.readFile("src\\defaultTxt.txt");
                     
                     if(file1.equals("-> No se encontro el archivo")){
                         view.dialogueText(file1);

@@ -14,6 +14,7 @@
  * @version 1.0
  * @since 2021-Enero-30
  **/    
+package src;
 
 import java.util.Scanner;
  
@@ -47,7 +48,7 @@ public class View {
         System.out.println("Ingrese el nombre del archivo que desee leer");
         System.out.println("--------------------------------------------");
         System.out.println("Ejemplos");
-        System.out.println("[E1] -> nombrearchivo.txt");
+        System.out.println("[E1] -> src\\nombrearchivo.txt");
         System.out.println("[E2] -> D:\\Funalito\\Archivos\\nombrearchivo.txt");
         System.out.println("Nota: Este ultimo puede variar depende de tu directorio");
         System.out.println("--------------------------------------------");
