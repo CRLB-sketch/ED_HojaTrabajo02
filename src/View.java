@@ -1,3 +1,5 @@
+package src;
+
 /**
  * <h1> Hoja de Trabajo 02 </h1>
  * <h2> View (Clase tipo "Vista") </h2>

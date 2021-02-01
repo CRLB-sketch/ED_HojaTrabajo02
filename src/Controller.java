@@ -1,3 +1,5 @@
+package src;
+
 /**
  * <h1> Hoja de Trabajo 02 </h1>
  * <h2> Controller (Clase tipo "Controlador") </h2>
@@ -17,7 +19,7 @@
 public class Controller {
     
     // --> Atributos
-    private Calculator<Integer> calc;
+    private Calculator<Character> calc;
     private ReaderTxt rTxt;
     private View view;
     private boolean out;
@@ -41,7 +43,7 @@ public class Controller {
 
                 // Leer archivo predeterminado
                 case "1":
-                    String file1 = rTxt.readFile("defaultTxt.txt");
+                    String file1 = rTxt.readFile("src\\defaultTxt.txt");
                     
                     if(file1.equals("-> No se encontro el archivo")){
                         view.dialogueText(file1);
@@ -81,19 +83,37 @@ public class Controller {
         } while (!out);
     }
 
-    private void makeOperation(String operation){
+    public void makeOperation(String operation){
 
         // Hacer los procesos para obtener la respuesta
-
-
-        // Mostrar los resultados finales y 
-        // preguntar si desea continuar o no
-        String desition = view.result(operation, 0);
-
+        int final_answer = 0;        
+        
+        for (int i = 0; i < operation.length(); i++) {            
+            char the_char = operation.charAt(i);
+            String the_string = String.valueOf(the_char);                
+            
+            if(!calc.isOperator(the_char)){ // Si es numero
+                if(the_string.equals(" ")){                    
+                }
+                else{
+                    calc.addOther(the_string);
+                }
+            }
+            else{ // Si es operador                       
+                final_answer = calc.makeOperation(the_char);                
+            }
+        }
+        
+        // Mostrar los resultados finales y se tomará la desicion si continuar o no
+        String desition = view.result(operation, final_answer);
+        
+        // Preguntar si desea continuar o no
         if(desition.equals("n") || desition.equals("N")){
             out = true;
             view.farewell();
         }
+
+        // return final_answer;
     }
     
 }
