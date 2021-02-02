@@ -15,7 +15,7 @@
  * @since 2021-Enero-30
  **/    
 
-public class ADTCalculator {
+public class ADTCalculator implements Icalculadora {
     
     /////////////////////////////////////////////////
 	// --> Atributos	
@@ -54,7 +54,7 @@ public class ADTCalculator {
      *              llevará a cabo.
      * @return int  Retornará el resultado.
      */
-    public int makeOperation(String op){
+    public double resolver(String op){
         int result = 0; 
         
         for (int i = 0; i < numbers.size(); i++) {
@@ -149,8 +149,6 @@ public class ADTCalculator {
      */
     public boolean isOperator(String c){
         switch (c) {
-            // case "+", "-", "*", "/":
-            //     return true;            
             case "+":
                 return true;
             case "-":
@@ -160,7 +158,7 @@ public class ADTCalculator {
             case "/":
                 return true;                
             default:
-                return false;                            
+                return false;                
         }
     }
 }

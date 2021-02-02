@@ -104,7 +104,7 @@ public class View {
      * @param operation     La operación del archivo.
      * @param final_number  El resultado final.
      */
-    public void result(String operation, int final_number){
+    public void result(String operation, double final_number){
         System.out.println("\n" + operation);
         System.out.println("Resultado: " + final_number + "\n");
     }

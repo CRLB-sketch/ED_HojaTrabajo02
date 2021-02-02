@@ -56,7 +56,7 @@ public class Controller {
                         view.dialogueText(file1);
                     }
                     else{ // Por sí se leyo correctamente el archivo
-                        makeOperation2(file1);
+                        makeOperation(file1);
                     }
                 
                     break;
@@ -70,7 +70,7 @@ public class Controller {
                         view.dialogueText(file2);
                     }
                     else{ // Por sí se leyo correctamente el archivo
-                        makeOperation2(file2);
+                        makeOperation(file2);
                     }
 
                     break;
@@ -97,9 +97,9 @@ public class Controller {
      * 
      * @param operation La operación del archivo
      */
-    private void makeOperation2(String operation){
+    private void makeOperation(String operation){
         
-        int final_answer = 0;
+        double final_answer = 0;
         String[] the_operation = operation.split(" ");
 
         try {
@@ -109,7 +109,7 @@ public class Controller {
                     adtCalc.pushNum(op);
                 }
                 else{ // Si es operador                
-                    final_answer = adtCalc.makeOperation(op);
+                    final_answer = adtCalc.resolver(op);
                 }
             }
             

@@ -33,8 +33,8 @@ public class OtherTest extends TestCase{
         adtCal.pushNum("10");
         adtCal.pushNum("2");
 
-        int resultado = adtCal.makeOperation("+");
-        int valorEsperado = 12;
+        double resultado = adtCal.resolver("+");
+        double valorEsperado = 12;
 
         assertEquals(resultado, valorEsperado);
     }
@@ -43,8 +43,8 @@ public class OtherTest extends TestCase{
         adtCal.pushNum("10");
         adtCal.pushNum("2");
 
-        int resultado = adtCal.makeOperation("-");
-        int valorEsperado = 8;
+        double resultado = adtCal.resolver("-");
+        double valorEsperado = 8;
 
         assertEquals(resultado, valorEsperado);
     }
@@ -53,8 +53,8 @@ public class OtherTest extends TestCase{
         adtCal.pushNum("10");
         adtCal.pushNum("2");
 
-        int resultado = adtCal.makeOperation("*");
-        int valorEsperado = 20;
+        double resultado = adtCal.resolver("*");
+        double valorEsperado = 20;
 
         assertEquals(resultado, valorEsperado);
     }
@@ -63,8 +63,8 @@ public class OtherTest extends TestCase{
         adtCal.pushNum("10");
         adtCal.pushNum("2");
 
-        int resultado = adtCal.makeOperation("/");
-        int valorEsperado = 5;
+        double resultado = adtCal.resolver("/");
+        double valorEsperado = 5;
 
         assertEquals(resultado, valorEsperado);
     }
