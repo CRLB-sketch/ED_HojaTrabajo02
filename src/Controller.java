@@ -1,5 +1,3 @@
-package src;
-
 /**
  * <h1> Hoja de Trabajo 02 </h1>
  * <h2> Controller (Clase tipo "Controlador") </h2>
@@ -16,6 +14,8 @@ package src;
  * @since 2021-Enero-30
  **/    
 
+import java.lang.NumberFormatException;
+ 
 public class Controller {
     
     /////////////////////////////////////////////////
@@ -50,7 +50,7 @@ public class Controller {
 
                 // Leer archivo predeterminado
                 case "1":
-                    String file1 = rTxt.readFile("src\\defaultTxt.txt");
+                    String file1 = rTxt.readFile("defaultTxt.txt");
                     
                     if(file1.equals("-> No se encontro el archivo")){
                         view.dialogueText(file1);
@@ -102,19 +102,27 @@ public class Controller {
         int final_answer = 0;
         String[] the_operation = operation.split(" ");
 
-        for(String op: the_operation){
-
-            if(!adtCalc.isOperator(op)){ // Si es numero
-                adtCalc.pushNum(op);
+        try {
+            for(String op: the_operation){
+    
+                if(!adtCalc.isOperator(op)){ // Si es numero
+                    adtCalc.pushNum(op);
+                }
+                else{ // Si es operador                
+                    final_answer = adtCalc.makeOperation(op);
+                }
             }
-            else{ // Si es operador                
-                final_answer = adtCalc.makeOperation(op);
-            }
+            
+            adtCalc.clean(); // Para limpiar los datos 
+    
+            // Mostrar los resultados finales
+            view.result(operation, final_answer);                    
+        } 
+        catch (NumberFormatException e) {
+            view.errorLetter();
         }
-        
-        adtCalc.clean(); // Para limpiar los datos 
-
-        // Mostrar los resultados finales
-        view.result(operation, final_answer);        
+        catch(Exception e){
+            view.errorUnknow();
+        }
     }           
 }

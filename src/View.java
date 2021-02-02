@@ -1,5 +1,3 @@
-package src;
-
 /**
  * <h1> Hoja de Trabajo 02 </h1>
  * <h2> View (Clase tipo "Vista") </h2>
@@ -86,6 +84,19 @@ public class View {
         System.out.println(information);
     }
 
+    /**
+     * Por sí el documento tiene letras
+     */
+    public void errorLetter(){
+        System.out.println("\n-> El archivo incluye letras, solo debe contener numeros y operadores.\n");
+    }
+
+    /**
+     * Por si ocurrío algo inesperado o desconocido :(
+     */
+    public void errorUnknow(){
+        System.out.println("\n-> Error desconocido :(\n");
+    }
     
     /** 
      * Mostrará el resultado de la operación dada.

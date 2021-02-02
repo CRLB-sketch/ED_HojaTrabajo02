@@ -1,5 +1,3 @@
-package src;
-
 /**
  * <h1> Hoja de Trabajo 02 </h1>
  * <h2> ADTCalculator / ADTCalculadora (Clase tipo "Modulo") </h2>
@@ -151,11 +149,18 @@ public class ADTCalculator {
      */
     public boolean isOperator(String c){
         switch (c) {
-            case "+", "-", "*", "/":
-                return true;            
-                
+            // case "+", "-", "*", "/":
+            //     return true;            
+            case "+":
+                return true;
+            case "-":
+                return true;
+            case "*":
+                return true;
+            case "/":
+                return true;                
             default:
-                return false;                
+                return false;                            
         }
     }
 }
