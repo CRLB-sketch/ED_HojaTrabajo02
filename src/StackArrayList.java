@@ -25,7 +25,7 @@ public class StackArrayList<E> implements Stack<E>
 	protected ArrayList<E> data;
 
 	/////////////////////////////////////////////////
-	// --> Atributos	
+	// --> Constructor	
 	public StackArrayList() {
 		data = new ArrayList<E>();
 	}
@@ -38,6 +38,7 @@ public class StackArrayList<E> implements Stack<E>
 	 * 
 	 * @param item	Representará el dato que se ingresará.
 	 */
+	@Override
 	public void push(E item) {
 		data.add(item);
 	}
@@ -47,6 +48,7 @@ public class StackArrayList<E> implements Stack<E>
 	*
 	* @return E		El dato eliminado.
 	*/
+	@Override
 	public E pop() {
 		return data.remove(size()-1);
 	}
@@ -56,26 +58,29 @@ public class StackArrayList<E> implements Stack<E>
 	 * 
 	 * @return E	El ultimo dato del Array.
 	 */
+	@Override
 	public E peek() {
 		return data.get(size() - 1);
 	}
-		
-	/** 
-	 * Se regresará el tamaño del Array.
-	 * 
-	 * @return int	El tamaño del Array.
-	 */
-	public int size() {
-		return data.size();
-	}
-  	
+		  	
 	/** 
 	 * Se verificará si esta vacio o no.
 	 * 
 	 * @return boolean	Si tiene 0 o no.
 	 */
+	@Override
 	public boolean empty() {
 		return size() == 0;
+	}
+
+	/** 
+	 * Se regresará el tamaño del Array.
+	 * 
+	 * @return int	El tamaño del Array.
+	 */
+	@Override
+	public int size() {
+		return data.size();
 	}
 	
 	/**

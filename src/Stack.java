@@ -27,7 +27,5 @@ public interface Stack<E>
    public boolean empty(); // Esta vacio
    
    public int size(); // Numero de elementos del stack
-
-   public E obtain(int pos); // Para obtener un elemento en específico
-
+   
 }
