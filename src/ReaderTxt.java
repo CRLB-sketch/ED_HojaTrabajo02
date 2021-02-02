@@ -21,16 +21,27 @@ import java.io.FileReader;
 
 public class ReaderTxt {
 
+    /////////////////////////////////////////////////
     // --> Atributos
     private BufferedReader bf;
     private String text;
 
+    /////////////////////////////////////////////////
     // --> Constructor
     public ReaderTxt(){
         text = "";
     }
 
+    /////////////////////////////////////////////////
     // --> Métodos
+
+    /** 
+     * Método para leer el archivo ingresado
+     * 
+     * @param file      Para solicitar la dirección del archivo.
+     * @return String   Para retornar el texto del archivo
+     *                  o la información.
+     */
     public String readFile(String file){
         try {
             bf = new BufferedReader(new FileReader(file));

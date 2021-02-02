@@ -4,65 +4,54 @@ import junit.framework.TestCase;
 
 public class OtherTest extends TestCase{
 
-    private Calculator<Integer> calc;
+    // --> Atributos
     private Controller ctrl;
+    private ADTCalculator adtCal;
 
+    // --> Constructor
     public OtherTest(){
-        calc = new Calculator<>();
         ctrl = new Controller();
-    }    
+        adtCal = new ADTCalculator();
+    }        
 
+    // --> Métodos
     public void testSuma(){
+        adtCal.pushNum("10");
+        adtCal.pushNum("2");
 
-        calc.addOther("5");
-        calc.addOther("4");
-        
-        int resultado = calc.makeOperation('+');        
-        int valorEsperado = 9;
-        
-        assertEquals(valorEsperado, resultado);
+        int resultado = adtCal.makeOperation("+");
+        int valorEsperado = 12;
+
+        assertEquals(resultado, valorEsperado);
     }
 
     public void testResta(){
+        adtCal.pushNum("10");
+        adtCal.pushNum("2");
 
-        calc.addOther("5");
-        calc.addOther("4");
-        
-        int resultado = calc.makeOperation('-');        
-        int valorEsperado = 1;
-        
-        assertEquals(valorEsperado, resultado);
+        int resultado = adtCal.makeOperation("-");
+        int valorEsperado = 8;
+
+        assertEquals(resultado, valorEsperado);
     }
 
     public void testMultiplicacion(){
+        adtCal.pushNum("10");
+        adtCal.pushNum("2");
 
-        calc.addOther("6");
-        calc.addOther("5");
-        
-        int resultado = calc.makeOperation('*');        
-        int valorEsperado = 30;
-        
-        assertEquals(valorEsperado, resultado);
+        int resultado = adtCal.makeOperation("*");
+        int valorEsperado = 20;
+
+        assertEquals(resultado, valorEsperado);
     }
 
     public void testDivision(){
+        adtCal.pushNum("10");
+        adtCal.pushNum("2");
 
-        calc.addOther("100");
-        calc.addOther("10");
-        
-        int resultado = calc.makeOperation('/');        
-        int valorEsperado = 10;
-        
-        assertEquals(valorEsperado, resultado);
-    }
+        int resultado = adtCal.makeOperation("/");
+        int valorEsperado = 5;
 
-    public void testHacerOperacionDeVerdad(){
-
-        // Esto lo deje comentado ya que para hacer esta prueba
-        // necesite cambiar el metodo de void a que retornará un int
-        // int resultado = ctrl.makeOperation("1 2 + 4 * 3 +");
-        // int valorEsperado = 15;
-
-        // assertEquals(valorEsperado, resultado);
+        assertEquals(resultado, valorEsperado);
     }
 }

@@ -22,6 +22,12 @@ package src;
  **/    
 
 public class Main {
+    
+    /** 
+     * Método para ejecutar todo el programa
+     * 
+     * @param args  ...
+     */
     public static void main(String[] args) {
         Controller ctrl = new Controller();
         ctrl.main_menu();

@@ -21,15 +21,23 @@ import java.util.Scanner;
 
 public class View {
 
+    /////////////////////////////////////////////////
     // --> Atributos
     private Scanner scan;
 
+    /////////////////////////////////////////////////
     // --> Contructor
     public View(){
         scan = new Scanner(System.in);
     }
 
+    /////////////////////////////////////////////////
     // --> Metodos
+    /** 
+     * Para mostrar el menu y poder obtener la desición del usuario.
+     * 
+     * @return String   La desición tomada por el usuario.
+     */
     public String menu(){
         System.out.println("*** ADT Calculadora ***");
         System.out.println("Menu: ");
@@ -41,14 +49,23 @@ public class View {
         return option;
     }
 
+    /**
+     * Cuando se selecciona una opción inválida
+     */
     public void invalid(){
         System.out.println("-> Opción Invalida");
     }
 
+    
+    /** 
+     * Para solicitar el nombre de un archivo.
+     * 
+     * @return String   El url escrito/solicitado.
+     */
     public String askFile(){
         System.out.println("Ingrese el nombre del archivo que desee leer");
         System.out.println("--------------------------------------------");
-        System.out.println("Ejemplos");
+        System.out.println("Ejemplos: ");
         System.out.println("[E0] -> nombrearchivo.txt");
         System.out.println("[E1] -> src\\nombrearchivo.txt");
         System.out.println("[E2] -> D:\\Funalito\\Archivos\\nombrearchivo.txt");
@@ -59,20 +76,31 @@ public class View {
         return file;
     }
 
+    
+    /** 
+     * Para mostrar información de un método.
+     * 
+     * @param information   La información dada.
+     */
     public void dialogueText(String information){
         System.out.println(information);
     }
 
-    public String result(String operation, int final_number){
-        System.out.println(operation);
-        System.out.println("Resultado: " + final_number);
-
-        System.out.println("\n¿Desea hacer otra operación? (s/n)");
-        
-        String desition = scan.nextLine();
-        return desition;
+    
+    /** 
+     * Mostrará el resultado de la operación dada.
+     * 
+     * @param operation     La operación del archivo.
+     * @param final_number  El resultado final.
+     */
+    public void result(String operation, int final_number){
+        System.out.println("\n" + operation);
+        System.out.println("Resultado: " + final_number + "\n");
     }
 
+    /**
+     * Mensaje para terminar con el programa
+     */
     public void farewell(){
         System.out.println("Saliendo...");
     }

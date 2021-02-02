@@ -18,21 +18,28 @@ package src;
 
 public class Controller {
     
+    /////////////////////////////////////////////////
     // --> Atributos
-    private Calculator<Character> calc;
+    private ADTCalculator adtCalc;
     private ReaderTxt rTxt;
     private View view;
     private boolean out;
 
+    /////////////////////////////////////////////////
     // --> Contructor
     public Controller(){
-        calc = new Calculator<>();
+        adtCalc = new ADTCalculator();
         rTxt = new ReaderTxt();
         view = new View();
         out = false;
     }
 
+    /////////////////////////////////////////////////
     // --> Metodos
+
+    /**
+     * Método para llevar a cabo la lógica del menu principal
+     */
     public void main_menu(){
 
         do {
@@ -49,7 +56,7 @@ public class Controller {
                         view.dialogueText(file1);
                     }
                     else{ // Por sí se leyo correctamente el archivo
-                        makeOperation(file1);
+                        makeOperation2(file1);
                     }
                 
                     break;
@@ -63,7 +70,7 @@ public class Controller {
                         view.dialogueText(file2);
                     }
                     else{ // Por sí se leyo correctamente el archivo
-                        makeOperation(file2);
+                        makeOperation2(file2);
                     }
 
                     break;
@@ -83,37 +90,31 @@ public class Controller {
         } while (!out);
     }
 
-    public void makeOperation(String operation){
-
-        // Hacer los procesos para obtener la respuesta
-        int final_answer = 0;        
-        
-        for (int i = 0; i < operation.length(); i++) {            
-            char the_char = operation.charAt(i);
-            String the_string = String.valueOf(the_char);                
-            
-            if(!calc.isOperator(the_char)){ // Si es numero
-                if(the_string.equals(" ")){                    
-                }
-                else{
-                    calc.addOther(the_string);
-                }
-            }
-            else{ // Si es operador                       
-                final_answer = calc.makeOperation(the_char);                
-            }
-        }
-        
-        // Mostrar los resultados finales y se tomará la desicion si continuar o no
-        String desition = view.result(operation, final_answer);
-        
-        // Preguntar si desea continuar o no
-        if(desition.equals("n") || desition.equals("N")){
-            out = true;
-            view.farewell();
-        }
-
-        // return final_answer;
-    }
     
+    /** 
+     * Este método tendrá toda la logíca para llevar a 
+     * cabo la operación.
+     * 
+     * @param operation La operación del archivo
+     */
+    private void makeOperation2(String operation){
+        
+        int final_answer = 0;
+        String[] the_operation = operation.split(" ");
+
+        for(String op: the_operation){
+
+            if(!adtCalc.isOperator(op)){ // Si es numero
+                adtCalc.pushNum(op);
+            }
+            else{ // Si es operador                
+                final_answer = adtCalc.makeOperation(op);
+            }
+        }
+        
+        adtCalc.clean(); // Para limpiar los datos 
+
+        // Mostrar los resultados finales
+        view.result(operation, final_answer);        
+    }           
 }
